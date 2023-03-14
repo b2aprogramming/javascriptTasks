@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function filerWord(str, word) {
+            let arr = [];
+            if(!str || !word) {
+                return arr;
+            }
+            let fInd = str.indexOf(word);
+            let isVal = fInd > -1;
+            while(isVal) {
+                let lastInd = fInd + word.length;
+                let txt = str.slice(fInd, lastInd);
+                arr.push(txt);
+                fInd = str.indexOf(word, lastInd + 1);
+                isVal = fInd > -1;
+            }
+            return arr;
+        }
+        var aa =  filerWord('This is my name. This is my book. This is my Role', 'name');
+        console.log(aa);
+                    
+    </script>
+</body>
+</html>
